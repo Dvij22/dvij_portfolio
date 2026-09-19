@@ -51,6 +51,36 @@ const Projects = () => {
     },
 
     {
+      title: "AI Job Application Assistant – Agentic Automation System",
+      description:
+        "Built and shipped an end-to-end web automation system in Python and Playwright that plans, executes, and adapts multi-step application workflows autonomously. Designed the modular system architecture, planned the design and implementation activities with task-level effort estimates, and documented each component for maintainability. Automation and optimized task execution improved workflow efficiency by 70%, backed by thorough testing and troubleshooting throughout.",
+      tech: ["Python", "Playwright", "LLM Integration", "LangGraph"],
+      focus: "Agentic AI · Automation · Playwright",
+      image: "/images/jobassistant-preview.png",
+      highlights: [
+        "Autonomous multi-step workflow planning and execution",
+        "Adapts to changing page states at runtime",
+        "Modular, documented system architecture",
+        "70% improvement in workflow efficiency",
+      ],
+    },
+
+    {
+      title: "Stock Market Prediction – Hybrid LSTM + LLM Forecasting System",
+      description:
+        "Developed a hybrid time-series forecasting system combining LSTM models with LLM-driven context, built on structured feature engineering pipelines. Added SHAP-based explainability to improve model interpretability, making forecasts easier to analyze and defend, and presented the findings to both technical and non-technical audiences to support data-driven decision-making.",
+      tech: ["Python", "TensorFlow", "LSTM", "SHAP", "Pandas"],
+      focus: "Time Series · LSTM · Explainability",
+      image: "/images/stockprediction-preview.png",
+      highlights: [
+        "Hybrid LSTM and LLM forecasting engine",
+        "Structured feature engineering pipelines",
+        "SHAP-based model explainability",
+        "Findings communicated to technical and non-technical audiences",
+      ],
+    },
+
+    {
       title: "TravelMate – Intelligent Travel Planner",
       description:
         "Built a full-stack intelligent travel planning platform focused on optimized itinerary generation and route planning. Developed an Angular frontend with interactive map visualizations and implemented Node.js APIs backed by SQL database models. The system streamlined trip planning by generating efficient schedules and travel routes tailored to user preferences.",

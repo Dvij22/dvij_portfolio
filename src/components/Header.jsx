@@ -14,7 +14,13 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = ['Home', 'Projects', 'Skills', 'Education', 'Contact'];
+  const navItems = [
+    { label: 'Home', href: '#home' },
+    { label: 'Projects', href: '#projects' },
+    { label: 'Skills', href: '#skills' },
+    { label: 'Experience', href: '#education' },
+    { label: 'Contact', href: '#contact' }
+  ];
 
   const headerVariants = {
     initial: { y: -100 },
@@ -58,17 +64,17 @@ const Header = () => {
           <ul className="flex space-x-8">
             {navItems.map((item, i) => (
               <motion.li
-                key={item}
+                key={item.label}
                 custom={i}
                 variants={navItemVariants}
                 initial="hidden"
                 animate="visible"
               >
                 <a
-                  href={`#${item.toLowerCase()}`}
+                  href={item.href}
                   className="text-sm font-medium hover:text-light transition-colors duration-300"
                 >
-                  {item}
+                  {item.label}
                 </a>
               </motion.li>
             ))}
@@ -114,16 +120,16 @@ const Header = () => {
               <ul className="flex flex-col space-y-4">
                 {navItems.map(item => (
                   <motion.li
-                    key={item}
+                    key={item.label}
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.2 }}
                   >
                     <a
-                      href={`#${item.toLowerCase()}`}
+                      href={item.href}
                       className="text-sm font-medium"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      {item}
+                      {item.label}
                     </a>
                   </motion.li>
                 ))}

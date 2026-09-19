@@ -10,7 +10,8 @@ const Education = () => {
       institution: "University of Northern British Columbia (UNBC), Canada",
       degree: "Bachelor of Science",
       field: "Computer Science",
-      period: "2023-2027 (Expected)"
+      period: "Sep 2023 – May 2027 (Expected)",
+      gpa: "GPA: 3.97 / 4.4"
     },
         {
       institution: "Nirman High School, India",
@@ -23,17 +24,27 @@ const Education = () => {
 
  const experience = [
     {
+      role: "Jr. Software Developer",
+      org: "Aeyesafe — Remote (U.S.)",
+      period: "July 2026 – Present",
+      bullets: [
+        "Developed data pipelines for sensor-driven systems, processing and integrating real-time sensor data to support reliable monitoring and decision-making across the platform.",
+        "Built backend workflows for real-time sensor ingestion and alerting, improving system reliability, performance, and observability.",
+        "Debugged production issues to strengthen monitoring at scale."
+      ]
+    },
+    {
       role: "Student Research Assistant",
       org: "Business Intelligence Research Group (BIRG) — UNBC",
-      period: "May 2024 – Present",
+      period: "Nov 2024 – Present",
       bullets: [
-        "Contributing as a full-stack and Flutter engineer across enterprise research platforms including Accessible UNBC, Biobank, and DCGA.",
+        "Own three production platforms end to end — Accessible UNBC, Biobank, and DCGA — as the full-stack and Flutter engineer.",
         "Architected cross-platform Flutter apps with offline-first workflows, media capture pipelines, wearable (BLE/health sensor) integration, and secure data sync.",
         "Engineered production-grade .NET 6/7 REST APIs using clean architecture, domain-driven design, JWT authentication, and async data pipelines.",
         "Built scalable Angular dashboards with advanced filtering, analytics views, and role-based access control.",
-        "Designed and optimized SQL Server schemas with indexing strategies, stored procedures, and data integrity enforcement for large scientific datasets.",
-        "Managed AWS serverless deployments using API Gateway, Lambda, S3, RDS, CloudWatch, and CI/CD pipelines via GitLab.",
-        "Integrated an internal LLM module to automate clinical care plan generation for the DCGA healthcare platform."
+        "Designed and optimized SQL Server schemas for large scientific datasets using indexing strategies (B-tree data structures), stored procedures, and data integrity enforcement.",
+        "Manage AWS serverless infrastructure (API Gateway, Lambda, S3, RDS, CloudWatch) with GitLab CI/CD pipelines for continuous deployment and observability, and provide third-level production support and technical documentation across all platforms.",
+        "Integrated an LLM-based agentic module into the DCGA platform to automate clinical care plan generation, designing a structured tool-use pipeline with schema-validated outputs, fallback handling, and a human-review flag for low-confidence generations."
       ]
     },
     {
@@ -49,13 +60,17 @@ const Education = () => {
     }
   ];
 
-  const achievements = [
-    "Winner – IWD Hackathon by Google Developer Group Hyderabad",
-    "4* Coder on CodeChef, solved 600+ DSA problems across platforms like LeetCode, CodeChef, and CSES",
-    "CodeChef Student Chapter & GDG CP Lead – Led competitive programming events and workshops",
-    "National Handball Goalkeeper – Kendriya Vidyalaya",
-    "2019 National & Indian National Mathematics Olympiad (INMO) Regionalist",
-    "Participated in Hackathon conducted by VIIT ACM Chapter"
+  const publications = [
+    {
+      title: "Wearable-Sensors-Enabled Real-Time Decision Support in Geriatrics",
+      authors: "W. Haque, S. Freeman, H. Fournier, V. Gami, D. Pandya",
+      venue: "Gerontechnology, 25(s), 1-1",
+      year: "2026",
+      doi: "https://doi.org/10.4017/gt.2026.25.2.1354.3",
+      details: [
+        "ISG – International Society of Gerontechnology, Conference Abstract"
+      ]
+    }
   ];
 
   const containerVariants = {
@@ -109,6 +124,7 @@ const Education = () => {
                 <div className="absolute w-3 h-3 bg-primary border border-light rounded-full -left-[7px] top-1"></div>
                 <h4 className="text-lg font-medium mb-1">{edu.institution}</h4>
                 <p className="text-muted mb-1">{edu.degree} – {edu.field}</p>
+                {edu.gpa && <p className="text-muted mb-1">{edu.gpa}</p>}
                 <p className="text-sm font-mono text-light opacity-70">{edu.period}</p>
               </motion.div>
             ))}
@@ -150,6 +166,53 @@ const Education = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Publications */}
+        <motion.div
+          className="mt-12"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <h3 className="text-xl font-medium mb-6 flex items-center">
+            <div className="w-4 h-4 border border-light mr-3"></div>
+            Publications
+          </h3>
+
+          <div className="space-y-8">
+            {publications.map((pub, i) => (
+              <motion.div
+                key={i}
+                className="p-5 border border-muted border-opacity-20 bg-secondary bg-opacity-20"
+                variants={itemVariants}
+              >
+                <h4 className="text-lg font-medium">{pub.title}</h4>
+                <p className="text-sm text-muted mb-1">{pub.authors}</p>
+                <p className="text-xs font-mono text-light opacity-70 mb-4">{pub.venue} · {pub.year}</p>
+
+                <ul className="space-y-2">
+                  {pub.details.map((detail, j) => (
+                    <li key={j} className="flex items-start gap-2 text-sm">
+                      <span className="text-light opacity-60 mt-1">→</span>
+                      <span>{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {pub.doi && (
+                  <a
+                    href={pub.doi}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-4 font-mono text-xs text-muted hover:text-light transition-colors"
+                  >
+                    DOI →
+                  </a>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

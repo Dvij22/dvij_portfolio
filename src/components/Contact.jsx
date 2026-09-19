@@ -160,9 +160,24 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-sm mb-1">Phone</h4>
-                  <a href="tel:+919912491246" className="text-muted hover:text-light transition-colors">
-                    +1 7788902850
+                  <a href="tel:+17788902850" className="text-muted hover:text-light transition-colors">
+                    +1 (778) 890-2850
                   </a>
+                </div>
+              </motion.div>
+
+              <motion.div
+                variants={itemVariants}
+                className="flex items-start"
+              >
+                <div className="mr-4 p-2 border border-muted border-opacity-30">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 21C12 21 19 15.5 19 10C19 6.13401 15.866 3 12 3C8.13401 3 5 6.13401 5 10C5 15.5 12 21 12 21ZM12 12C13.1046 12 14 11.1046 14 10C14 8.89543 13.1046 8 12 8C10.8954 8 10 8.89543 10 10C10 11.1046 10.8954 12 12 12Z" stroke="#F5F5F5" strokeOpacity="0.8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-medium text-sm mb-1">Location</h4>
+                  <p className="text-muted">Prince George, BC, Canada</p>
                 </div>
               </motion.div>
 

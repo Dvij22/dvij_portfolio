@@ -19,7 +19,7 @@ const Footer = () => {
               <span className="font-mono text-lg tracking-wider">Dvij Pandya</span>
             </div>
             <p className="text-muted text-sm">
-              Tech enthusiast building innovative solutions
+              Full-stack developer building production-grade platforms
             </p>
           </motion.div>
 

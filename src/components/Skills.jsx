@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const Skills = () => {
   const ref = useRef(null);
@@ -8,24 +8,77 @@ const Skills = () => {
   const categories = [
     {
       name: "Frontend",
-      skills: ["React.js", "React Native", "Next.js", "Flutter", "Angular", "TypeScript", "JavaScript", "HTML", "CSS", "Tailwind CSS"]
+      skills: [
+        "React.js",
+        "React Native",
+        "Next.js",
+        "Flutter",
+        "Angular",
+        "TypeScript",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Tailwind CSS",
+      ],
     },
     {
       name: "Backend",
-      skills: ["Node.js", ".NET", "Express.js", "Python", "C++", "REST APIs", "WebSockets", "JWT Authentication"]
+      skills: [
+        "Node.js",
+        ".NET",
+        "Express.js",
+        "Python",
+        "Java",
+        "C/C++",
+        "REST APIs",
+        "WebSockets",
+        "JWT Authentication",
+      ],
     },
     {
       name: "Database",
-      skills: ["SQL", "SQL Server", "PostgreSQL", "Relational Database Design", "MongoDB", "DynamoDB", "PostgreSQL"]
+      skills: [
+        "SQL",
+        "SQL Server",
+        "PostgreSQL",
+        "MySQL",
+        "Relational Database Design",
+        "MongoDB",
+        "DynamoDB",
+        "Firebase",
+      ],
     },
     {
       name: "Cloud &DevOps",
-      skills: ["AWS Lambda", "AWS S3", "AWS RDS", "Git", "API Gateway", "Google Gemini API" , "CI/CD", "Docker", "AWS EC2"]
+      skills: [
+        "AWS Lambda",
+        "AWS S3",
+        "AWS RDS",
+        "AWS CloudWatch",
+        "Git",
+        "API Gateway",
+        "Google Gemini API",
+        "CI/CD",
+        "GitLab CI/CD",
+        "Docker",
+        "AWS EC2",
+      ],
     },
     {
       name: "Applied AI / ML ",
-      skills: ["TensorFlow", "LLM Integration", "Scikit-Learn", "Pandas", "NumPy", "OpenCV", "Natural Language Processing (NLP)", "Computer Vision", "Sensor & Wearable Data Processing"]
-    }
+      skills: [
+        "TensorFlow",
+        "LLM Integration",
+        "LangChain",
+        "LangGraph",
+        "Scikit-Learn",
+        "Pandas",
+        "NumPy",
+        ,
+        "Natural Language Processing (NLP)",
+        "Sensor & Wearable Data Processing",
+      ],
+    },
   ];
 
   const containerVariants = {
@@ -33,39 +86,41 @@ const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
   return (
     <section id="skills" className="section-padding bg-secondary">
       <div className="container-custom" ref={ref}>
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
           <h4 className="font-mono text-sm text-muted mb-2">EXPERTISE</h4>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Technical Skills</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Technical Skills
+          </h2>
           <div className="w-16 h-[2px] bg-light opacity-50"></div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
           {categories.map((category, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               className="border border-muted border-opacity-20 bg-primary bg-opacity-40 p-6"
               variants={itemVariants}
             >
@@ -74,13 +129,13 @@ const Skills = () => {
               </h3>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, j) => (
-                  <motion.span 
-                    key={j} 
+                  <motion.span
+                    key={j}
                     className="text-sm bg-secondary px-3 py-1 rounded-sm"
-                    whileHover={{ 
-                      y: -2, 
-                      backgroundColor: "rgba(245, 245, 245, 0.05)", 
-                      transition: { duration: 0.2 } 
+                    whileHover={{
+                      y: -2,
+                      backgroundColor: "rgba(245, 245, 245, 0.05)",
+                      transition: { duration: 0.2 },
                     }}
                   >
                     {skill}
@@ -91,7 +146,7 @@ const Skills = () => {
           ))}
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="mt-16 flex flex-col md:flex-row items-center justify-between p-6 border border-muted border-opacity-20 bg-primary bg-opacity-40"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -99,7 +154,9 @@ const Skills = () => {
         >
           <div className="mb-6 md:mb-0">
             <h3 className="text-xl font-medium mb-2">Ready to collaborate?</h3>
-            <p className="text-muted">Let's discuss how my skills can help your project.</p>
+            <p className="text-muted">
+              Let's discuss how my skills can help your project.
+            </p>
           </div>
           <a href="#contact" className="btn btn-primary whitespace-nowrap">
             Get in Touch
